@@ -1,0 +1,275 @@
+select  count(tf.kapaketiketi) as sayi  from tblkapakkapaktip tf 
+                        join tblhrtreadertag t on substring(t.epc, 14, 11) = tf.kapaketiketi 
+                        join tbl14ficidolum tf2 on tf2.kapaketiket = tf.kapaketiketi 
+                        where tf.aktif = 1 and tf.kapaktipi ='ED5998F9-1024-42AD-A066-92A954A8DD38'
+                        
+                        
+                        
+                        select 
+                       tbl14ficidolum.ficietiket, 
+                      tbl14ficidolum.kapaketiket,
+                      tbl14ficidolum.siparisno,
+                       tbl14ficidolum.malzemekodu,
+                       tbl14ficidolum.malzemeadi,
+                      tbl14ficidolum.partino,
+                       tbl14ficidolum.urunformadi,
+                       tbl14ficidolum.createuser,
+                       tbl14ficidolum.databasekayitzamani,
+                      tbl14ficidolum.durum,
+                        COALESCE(tblhrtreaderkat.katadi,'') as katadi ,
+                      COALESCE(tblhrtreaderkat.mahaladi,'') as mahaladi 
+                        from tbl14ficidolum 
+                       left join tblhrtreadertag on (substring(tblhrtreadertag.epc,14,11) = tbl14ficidolum.ficietiket or substring(tblhrtreadertag.epc,14,11) = tbl14ficidolum.kapaketiket)     
+                        left join tblhrtreaderkat on tblhrtreaderkat.readerip = tblhrtreadertag.readerip    
+                      where tbl14ficidolum.aktif = 1  and tblhrtreaderkat.readerip  ilike '%10.0.108.21%'
+                      
+                      
+                      
+                     select 
+                    COALESCE(tblhrtreaderkat.katadi, '') as katadi , 
+                    COALESCE(tblhrtreaderkat.mahaladi, '') as mahaladi , 
+                    tblhrtreadertagarsiv.readerip, 
+                    tblhrtreadertagarsiv.databasekayitzamani, 
+                    tblhrtreadertagarsiv.siparisno,
+                   tblhrtreadertagarsiv.malzemekodu 
+                     from tblhrtreadertagarsiv 
+                    left join tblhrtreaderkat on tblhrtreaderkat.readerip = tblhrtreadertagarsiv.readerip 
+                     where 
+                     epc = '0000000000000A0050A00001'
+                    order by tblhrtreadertagarsiv.databasekayitzamani desc
+                    
+                    
+                     select  t.guncellemezamani,  f.ficietiket,  f.kapaketiket, 
+ f.urunformadi,  f.malzemeadi,  f.malzemekodu,  f.siparisno, 
+ f.partino  ,f.databasekayitzamani  
+ from tbl13ficibosaltma f  join tblhrtreadertag t 
+ on (substring(t.epc,14,11) = f.ficietiket or substring(t.epc,14,11) = f.kapaketiket)  where f.aktif=1
+ 
+ select readerip, siparisno, malzemekodu, databasekayitzamani,epc 
+ from tblhrtreadertag where malzemekodu ilike '%M100101300600048' 
+ union all  select readerip, siparisno, malzemekodu, databasekayitzamani,epc 
+ from tblhrtreadertag where epc ilike '%B0100A00004%' or epc ilike A0100B00002 )
+ order by databasekayitzamani desc
+ select ficietiket,kapaketiket,malzemekodu  from tbl14ficidolum where malzemekodu ilike '%M100200100300861%'
+ 
+ select readerip, siparisno, malzemekodu, databasekayitzamani,epc from tblhrtreadertag where malzemekodu like '%s%'
+ union all 
+ (select readerip, siparisno, malzemekodu, databasekayitzamani, epc from tblhrtreadertag where epc ilike '%d%' or epc ilike '%s%')  order by databasekayitzamani desc
+ 
+
+select * from tbl10ficigovdetipeslestirme t where  t.ficietiket ='A1200B00004'
+ 
+select * from tblhrtreadertag t where substring(t.epc,14,11) = 'A1200B00004'
+
+Select  count(tf.ficietiket) as sayi  from tbl10ficigovdetipeslestirme tf  
+                        join tblhrtreadertag t on  substring(t.epc,14,11) = tf.ficietiket  where tf.aktif =1 and tf.govdetipid  ='0CF9F726-8FA9-4307-81C9-F4404609C61E'
+                        
+                        
+                        
+                        select  count(tf.ficietiket) as sayi  from tbl10ficigovdetipeslestirme tf 
+                        join tblhrtreadertag t on substring(t.epc, 14, 11) = tf.ficietiket 
+                        join tbl14ficidolum tf2 on tf2.ficietiket = tf.ficietiket 
+                        where tf.aktif = 1 and tf.govdetipid ='0CF9F726-8FA9-4307-81C9-F4404609C61E'
+                        
+                                                select * from tblhrtreadertagarsiv t limit 100
+
+                        select * from tblhrtreadertag t where t.readerip ='10.0.108.22'
+                        
+                        select  COALESCE(tblhrtreaderkat.katadi, '') as katadi ,  COALESCE(tblhrtreaderkat.mahaladi, '') as mahaladi ,  tblhrtreadertagarsiv.readerip,  
+                        tblhrtreadertagarsiv.databasekayitzamani,  tblhrtreadertagarsiv.siparisno,  tblhrtreadertagarsiv.malzemekodu  from tblhrtreadertagarsiv  
+                        left join tblhrtreaderkat on tblhrtreaderkat.readerip = tblhrtreadertagarsiv.readerip  
+                        where  epc = @epc  
+                        order by tblhrtreadertagarsiv.databasekayitzamani desc
+                        
+                        
+                        
+                        
+                        select * from tblhrtreadertag t  where t.epc  ='0000000000000E0100A01006'
+
+
+select * from tblhrtreadertag t  where t.epc  ='0000000000000E0100B01539'
+
+
+
+
+select  t.id,count(t.id) as sayi  from tblkapakkapaktip  tf  
+join tblkapaktanim t   on t.id = tf.kapaktipi  group by t.id 
+
+
+select * from tbl14ficidolum tf 
+select * from tblkapakkapaktip t where t.kapaketiketi ='E0100A01048'
+
+select  count(tf2.id ) as sayi  from tblkapakkapaktip  tf  
+join tbl14ficidolum tf2   on  tf2.kapaketiket  = tf.kapaketiketi  
+where tf.aktif =1 and tf.kapaktipi = '93631775-C6F8-447B-8AD7-005566165B45' 
+
+
+select kapaketiketi from tblkapakkapaktip where  kapaktipi = 'FEFA5FFE-6AA1-453D-8AF9-385773F74245'   4
+
+select * from tbl14ficidolum where kapaketiket='A0100A00001'
+select * from tblhrtreadertag 
+select * from tblkapakkapaktip t  where t.kapaktipi  ='93631775-C6F8-447B-8AD7-005566165B45'
+select * from tblkapakkapaktip t  where t.kapaketiketi  ='A0100A00001'
+AA0000A4001
+AA0000A4002
+AA0000A4003
+AA0000A4004
+select * from tblkapakkapaktip t  where t.kapaktipi  ='FEFA5FFE-6AA1-453D-8AF9-385773F74245'
+
+
+select  count(tf.kapaketiketi) as sayi  from tblkapakkapaktip  tf  
+join tblhrtreadertag t on  substring(t.epc,14,11) = tf.kapaketiketi  where tf.aktif =1 and tf.kapaktipi  ='ED5998F9-1024-42AD-A066-92A954A8DD38' 
+
+
+
+
+select  count(tf.ficietiket) as sayi  from tbl10ficigovdetipeslestirme tf  
+join tblhrtreadertag t on  substring(t.epc,14,11) = tf.ficietiket where tf.aktif =1 and tf.govdetipid ='0CF9F726-8FA9-4307-81C9-F4404609C61E' 
+
+ select count(tf.kapaketiketi) as sayi  from tblkapakkapaktip  tf 
+ join tblhrtreadertag t on  substring(t.epc,14,11) = tf.kapaketiketi  
+ where tf.aktif =1 and tf.kapaktipi  ='93631775-C6F8-447B-8AD7-005566165B45'
+ 
+  select count(tf.kapaketiketi), t2.birimadi  as sayi  from tblkapakkapaktip  tf 
+ join tblhrtreadertag t on  substring(t.epc,14,11) = tf.kapaketiketi  
+ join tblkapaktanim t2 on t2.id = tf.kapaktipi 
+ where tf.aktif =1 group by t2.birimadi  
+ 
+
+ select  * , t.readerip ,t.guncellemezamani  from tbl10ficigovdetipeslestirme tf 
+ join tblhrtreadertag t on  substring(t.epc,14,11) = tf.ficietiket
+ join tbl14ficidolum tf2 on  tf2.ficietiket  = tf.ficietiket  
+ where tf.aktif =1 and CAST(t.guncellemezamani AS DATE) ='2022-11-29'  
+ select count(*) as sayi from tblkapakkapaktip tf join tblhrtreadertag t 
+ on  substring(t.epc, 14, 11) = tf.kapaketiketi join tbl14ficidolum tf2 on 
+ tf2.kapaketiket = tf.kapaketiketi where tf.aktif = 1 and CAST(t.guncellemezamani AS DATE) = '30.11.2022'
+ select  count(tf.kapaketiketi) as sayi  from tblkapakkapaktip tf 
+                        join tblhrtreadertag t on substring(t.epc, 14, 11) = tf.kapaketiketi
+                        join tbl14ficidolum tf2 on tf2.kapaketiket = tf.kapaketiketi 
+                        where tf.aktif = 1  and tf.guncellemezamani 
+                         select  count(tf.kapaketiketi) as sayi  from tblkapakkapaktip tf 
+                        join tblhrtreadertag t on substring(t.epc, 14, 11) = tf.kapaketiketi
+                        join tbl14ficidolum tf2 on tf2.kapaketiket = tf.kapaketiketi 
+                        where tf.aktif = 1 
+                        
+ select k.katadi,count(r.readerip) as count    from tblhrtreaderkat k 
+                       join tblhrtreadertag r  on k.readerip = r.readerip 
+                       group by k.katadi
+                       
+                       
+                       
+ 
+ select  count(tf.kapaketiketi) as sayi  from tblkapakkapaktip tf join tblhrtreadertag t on substring(t.epc, 14, 11) = tf.kapaketiketi join tbl14ficidolum tf2 on tf2.kapaketiket = tf.kapaketiketi where tf.aktif = 1 and tf.kapaktipi ='BFC76C13-B8A8-4D19-9045-3E3758053141'
+ 
+ 
+ select count(*) as sayi from tblkapakkapaktip tf 
+join tblhrtreadertag t on  substring(t.epc, 14, 11) = tf.kapaketiketi 
+join tbl14ficidolum tf2 on  tf2.kapaketiket = tf.kapaketiketi 
+where tf.aktif = 1 and CAST(t.guncellemezamani AS DATE) = '2022-11-30'
+
+
+
+select count(*) as sayi from tbl10ficigovdetipeslestirme tf 
+join tblhrtreadertag t on  substring(t.epc, 14, 11) = tf.ficietiket 
+
+select k.katadi, r.epc  as count    from tblhrtreaderkat k 
+                        join tblhrtreadertag r  on k.readerip = r.readerip where k.katadi ='0.00 Kotu AZ alanı'
+                       --group by k.katadi 
+                       
+      select k.katadi,count(r.readerip)as count    from tblhrtreaderkat k 
+                       left join tblhrtreadertag r  on k.readerip = r.readerip 
+                       group by k.katadi                  
+select  k.katadi,count(r.readerip) as count    from tblhrtreaderkat k 
+                       join tblhrtreadertag r  on k.readerip = r.readerip 
+                       join tblkapakkapaktip  t on  t.kapaketiketi = substring(r.epc , 14, 11) 
+                       where t.aktif = 1   and  k.katadi ='0.00 Kotu AZ alanı' group by k.katadi  
+                       
+                      
+                       
+                   select  k.katadi,count(r.readerip) as count    from tblhrtreaderkat k 
+                       join tblhrtreadertag r  on k.readerip = r.readerip 
+                       join tbl10ficigovdetipeslestirme   t on  t.ficietiket  = substring(r.epc , 14, 11) 
+                       where t.aktif = 1 and  k.katadi ='0.00 Kotu AZ alanı' group by k.katadi   
+                           
+                       
+                         select * from  tblkapakkapaktip t where t.kapaketiketi ='E0100A00418'
+                         
+                         SELECT kapaketiketi, COUNT(*)
+FROM tblkapakkapaktip t
+GROUP BY t.kapaketiketi 
+HAVING COUNT(*) > 1
+
+select * from tbl10ficigovdetipeslestirme tf where tf.ficietiket ='B0100B04214'
+
+
+
+
+
+
+            SELECT ficietiket, COUNT(*)
+FROM tbl10ficigovdetipeslestirme t
+GROUP BY t.ficietiket  
+HAVING COUNT(*) > 1
+
+
+
+delete from tblkapakkapaktip t where t.kapaketiketi ='E0100A00019' limit  1
+delete from tbl10ficigovdetipeslestirme where  t.id=''     
+
+SELECT kapaketiketi
+FROM tblkapakkapaktip t
+GROUP BY t.kapaketiketi   
+HAVING COUNT(*) > 1 
+                       
+
+
+
+
+
+DELETE FROM tblkapakkapaktip t 
+    WHERE t.id NOT IN
+    (
+     SELECT kapaketiketi
+FROM tblkapakkapaktip t
+GROUP BY t.kapaketiketi   
+HAVING COUNT(*) > 1 
+    );
+   
+Delete  tblkapakkapaktip  from (
+Select  *,
+        ROW_NUMBER() over (Partition by kapaketiketi order by kapaketiketi) as rowNumber
+From    tblkapakkapaktip
+Where   rowNumber > 1
+   Select count(*) from tblkapakkapaktip
+   
+                       select *  from tblkapakkapaktip  t where  t.kapaketiketi = substring('0000000000000B0100B04311' , 14, 11) 
+                       select *  from  tbl10ficigovdetipeslestirme  t where  t.ficietiket = substring('0000000000000B0100B04311' , 14, 11) 
+
+                       select  count(tf.kapaketiketi) as sayi  from tblkapakkapaktip tf 
+                        join tblhrtreadertag t on substring(t.epc, 14, 11) = tf.kapaketiketi
+                        join tbl14ficidolum tf2 on tf2.kapaketiket = tf.kapaketiketi 
+                        where tf2.aktif = 1 and tf.aktif = 1 and t.aktif =1 and tf.kapaktipi =
+                        
+                        
+                        select count(*) from tblkapakkapaktip t 
+                        join tbl14ficidolum tf  on tf.kapaketiket = t.kapaketiketi 
+                        where t.aktif =1 and tf.aktif = 1 and t.kapaktipi = '71137ABA-2CBF-4488-A5D7-730CFFFBB3E1'
+                         select count(*) from tbl10ficigovdetipeslestirme  t 
+                        join tbl14ficidolum tf  on tf.kapaketiket = t. 
+                        where t.aktif =1 and tf.aktif = 1 and t.kapaktipi = 
+                        
+                        Select  count(tf.kapaketiketi) as sayi  from tblkapakkapaktip  tf 
+                         join tblhrtreadertag t on  substring(t.epc,14,11) = tf.kapaketiketi 
+                         where tf.aktif =1 and t.aktif = 1 and tf.kapaktipi 
+                         
+                         select * from tbl14ficidolum tf where tf.aktif  = 1
+                         
+                        select  count(tf.kapaketiketi) as sayi  from tblkapakkapaktip tf 
+                        join tblhrtreadertag t on substring(t.epc, 14, 11) = tf.kapaketiketi 
+                        join tbl14ficidolum tf2 on tf2.kapaketiket = tf.kapaketiketi 
+                        where tf.aktif = 1 and tf.aktif = 1 and t.aktif =1 and tf.kapaktipi ='3631775-C6F8-447B-8AD7-005566165B45'
+                        
+                        select * from tblkapakkapaktip t where t.kapaktipi  ='CFE73824-A7F8-4C0D-A479-57A18504343A'
+                        select * from tblkapakkapaktip   t where t.kapaketiketi ='A0050A00001'
+                       select * from tblkapaktanim t  where t.id='93631775-C6F8-447B-8AD7-005566165B45'
+                        select * from tbl14ficidolum tf 
